@@ -26,221 +26,224 @@ class _BmiScreenState extends State<BmiScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
-      body: Column(children: [
-         Expanded(
-          child: Row(
-            children: [
-              Expanded(
-                child: CustomContainer(
-                  content: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap: (){
-                            setState(() {
-                              maleColor = Colors.red;
-                              femaleColor = Colors.white;
-                            });
-                          },
-                          child: Icon(
-                            Icons.male,
-                            size: 100,
-                            color: maleColor,
-                          ),
-                        ),
-                        const Text(
-                          'MALE ',
-                          style: AppTextStyle.labelTextStyle,
-                        ),
-                      ]),
-                ),
-              ),
-              Expanded(
-                child: CustomContainer(
-                  content: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        InkWell(
-                          onTap:() {setState(() {
-                            femaleColor = Colors.red;
-                            maleColor = Colors.white;
-                          });},
-                          child: Icon(
-                            Icons.female,
-                            size: 100,
-                            color: femaleColor,
-                          ),
-                        ),
-                        const Text(
-                          'FEMALE',
-                          style: AppTextStyle.labelTextStyle,
-                        )
-                      ]),
-                ),
-              )
-            ],
-          ),
-        ),
-        Expanded(
-          child: CustomContainer(
-            content: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+      body: Container(
+        padding: const EdgeInsets.all(15),
+        child: Column(children: [
+           Expanded(
+            child: Row(
               children: [
-                const Text(
-                  'HIEGHT',
-                  style: AppTextStyle.labelTextStyle,
+                Expanded(
+                  child: CustomContainer(
+                    content: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            onTap: (){
+                              setState(() {
+                                maleColor = Colors.red;
+                                femaleColor = Colors.white;
+                              });
+                            },
+                            child: Icon(
+                              Icons.male,
+                              size: 100,
+                              color: maleColor,
+                            ),
+                          ),
+                          const Text(
+                            'MALE ',
+                            style: AppTextStyle.labelTextStyle,
+                          ),
+                        ]),
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '$height',
-                      style: AppTextStyle.numberTextStyle,
-                    ),
-                    const Text(
-                      'cm',
-                      style: AppTextStyle.labelTextStyle,
-                    ),
-                  ],
-                ),
-                Slider(
-                  thumbColor: AppColors.appButtonColor,
-                  activeColor: AppColors.appButtonColor,
-                  value: height.toDouble(),
-                  onChanged: (newValue) {
-                    setState(() {
-                      height = newValue.round();
-                    });
-                  },
-                  min: 120,
-                  max: 220,
+                Expanded(
+                  child: CustomContainer(
+                    content: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          InkWell(
+                            onTap:() {setState(() {
+                              femaleColor = Colors.red;
+                              maleColor = Colors.white;
+                            });},
+                            child: Icon(
+                              Icons.female,
+                              size: 100,
+                              color: femaleColor,
+                            ),
+                          ),
+                          const Text(
+                            'FEMALE',
+                            style: AppTextStyle.labelTextStyle,
+                          )
+                        ]),
+                  ),
                 )
               ],
             ),
           ),
-        ),
-        Expanded(
-          child: Row(
-            children: [
-              Expanded(
-                child: CustomContainer(
-                  content: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
+          Expanded(
+            child: CustomContainer(
+              content: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'HIEGHT',
+                    style: AppTextStyle.labelTextStyle,
+                  ),
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
+                      Text(
+                        '$height',
+                        style: AppTextStyle.numberTextStyle,
+                      ),
                       const Text(
-                        'WEIGHT',
+                        'cm',
                         style: AppTextStyle.labelTextStyle,
                       ),
-                      Text('$weight', style: AppTextStyle.numberTextStyle),
-                      Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            RoundButton(
-                                btnIcon: const Icon(
-                                  Icons.remove,
-                                  size: 50,
-                                  color: Colors.white,
-                                ),
-                                btnFunction: () {
-                                  setState(() {
-                                    weight--;
-                                  });
-                                }),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            RoundButton(
-                                btnIcon: const Icon(
-                                  Icons.add,
-                                  size: 50,
-                                  color: Colors.white,
-                                ),
-                                btnFunction: () {
-                                  setState(() {
-                                    weight++;
-                                  });
-                                })
-                          ]),
                     ],
                   ),
-                ),
+                  Slider(
+                    thumbColor: AppColors.appButtonColor,
+                    activeColor: AppColors.appButtonColor,
+                    value: height.toDouble(),
+                    onChanged: (newValue) {
+                      setState(() {
+                        height = newValue.round();
+                      });
+                    },
+                    min: 120,
+                    max: 220,
+                  )
+                ],
               ),
-              Expanded(
-                child: CustomContainer(
-                  content: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        'AGE',
-                        style: AppTextStyle.labelTextStyle,
-                      ),
-                      Text('$age', style: AppTextStyle.numberTextStyle),
-                      Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            RoundButton(
-                                btnIcon: const Icon(
-                                  Icons.remove,
-                                  size: 50,
-                                  color: Colors.white,
-                                ),
-                                btnFunction: () {
-                                  setState(() {
-                                    age--;
-                                  });
-                                }),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            RoundButton(
-                                btnIcon: const Icon(
-                                  Icons.add,
-                                  size: 50,
-                                  color: Colors.white,
-                                ),
-                                btnFunction: () {
-                                  setState(() {
-                                    age++;
-                                  });
-                                })
-                          ]),
-                    ],
-                  ),
-                ),
-              )
-            ],
+            ),
           ),
-        ),
-        AppButton(
-          btnTitle: 'Calculate',
-          btnFunction: () {
-            if (maleColor == Colors.red || femaleColor == Colors.red) {
-              Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ResultsScreen(
-                  bmi: bmi = weight / ((height * 0.01) * (height * 0.01)),
-                  resultText: AppFunctions.resultTextCal(),
-                  resultColor: AppFunctions.resultTextCal(),
-                  resultMessage: AppFunctions.resultTextCal(),
+          Expanded(
+            child: Row(
+              children: [
+                Expanded(
+                  child: CustomContainer(
+                    content: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'WEIGHT',
+                          style: AppTextStyle.labelTextStyle,
+                        ),
+                        Text('$weight', style: AppTextStyle.numberTextStyle),
+                        Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundButton(
+                                  btnIcon: const Icon(
+                                    Icons.remove,
+                                    size: 50,
+                                    color: Colors.white,
+                                  ),
+                                  btnFunction: () {
+                                    setState(() {
+                                      weight--;
+                                    });
+                                  }),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              RoundButton(
+                                  btnIcon: const Icon(
+                                    Icons.add,
+                                    size: 50,
+                                    color: Colors.white,
+                                  ),
+                                  btnFunction: () {
+                                    setState(() {
+                                      weight++;
+                                    });
+                                  })
+                            ]),
+                      ],
+                    ),
+                  ),
                 ),
-              ),
-            );
-            }else {
-              ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                backgroundColor: Colors.red,
-                content: Text('Please Select Your Gender')));
-            }
-          },
-          btnHeight: 60,
-        )
-      ]),
+                Expanded(
+                  child: CustomContainer(
+                    content: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'AGE',
+                          style: AppTextStyle.labelTextStyle,
+                        ),
+                        Text('$age', style: AppTextStyle.numberTextStyle),
+                        Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              RoundButton(
+                                  btnIcon: const Icon(
+                                    Icons.remove,
+                                    size: 50,
+                                    color: Colors.white,
+                                  ),
+                                  btnFunction: () {
+                                    setState(() {
+                                      age--;
+                                    });
+                                  }),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              RoundButton(
+                                  btnIcon: const Icon(
+                                    Icons.add,
+                                    size: 50,
+                                    color: Colors.white,
+                                  ),
+                                  btnFunction: () {
+                                    setState(() {
+                                      age++;
+                                    });
+                                  })
+                            ]),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          AppButton(
+            btnTitle: 'Calculate',
+            btnFunction: () {
+              if (maleColor == Colors.red || femaleColor == Colors.red) {
+                Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsScreen(
+                    bmi: bmi = weight / ((height * 0.01) * (height * 0.01)),
+                    resultText: AppFunctions.resultTextCal(),
+                    resultColor: AppFunctions.resultTextCal(),
+                    resultMessage: AppFunctions.resultTextCal(),
+                  ),
+                ),
+              );
+              }else {
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                  backgroundColor: Colors.red,
+                  content: Text('Please Select Your Gender')));
+              }
+            },
+            btnHeight: 60,
+          )
+        ]),
+      ),
     );
   }
 }

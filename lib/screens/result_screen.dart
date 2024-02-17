@@ -19,51 +19,53 @@ class ResultsScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
       body: Expanded(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Your Result',
-              style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 50,
-                  color: Colors.white),
-            ),
-            Expanded(
-              child: CustomContainer(
-                content: Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        resultText,
-                        style: TextStyle(color: AppFunctions.resultColor, fontSize: 35),
-                      ),
-                      Text(
-                        bmi.toStringAsFixed(1),
-                        style: AppTextStyle.numberTextStyle,
-                      ),
-                      Text(
-                        resultMessage,
-                        style: TextStyle(
-                            fontSize: 16, color: AppFunctions.resultColor),
-                      ),
-                      const Row(),
-                    ],
+        child: Container(padding: const EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Your Result',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 50,
+                    color: Colors.white),
+              ),
+              Expanded(
+                child: CustomContainer(
+                  content: Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          resultText,
+                          style: TextStyle(color: AppFunctions.resultColor, fontSize: 35),
+                        ),
+                        Text(
+                          bmi.toStringAsFixed(1),
+                          style: AppTextStyle.numberTextStyle,
+                        ),
+                        Text(
+                          resultMessage,
+                          style: TextStyle(
+                              fontSize: 16, color: AppFunctions.resultColor),
+                        ),
+                        const Row(),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            AppButton(
-              btnTitle: 'RECALCULATE',
-              btnFunction: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => const BmiScreen()));
-              },
-              btnHeight: 60,
-            )
-          ],
+              AppButton(
+                btnTitle: 'RECALCULATE',
+                btnFunction: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => const BmiScreen()));
+                },
+                btnHeight: 60,
+              )
+            ],
+          ),
         ),
       ),
     );
