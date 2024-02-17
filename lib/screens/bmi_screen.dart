@@ -26,9 +26,7 @@ class _BmiScreenState extends State<BmiScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.backgroundColor,
-      body: Container(
-        padding: const EdgeInsets.all(15),
-        child: Column(children: [
+      body: Column(children: [
            Expanded(
             child: Row(
               children: [
