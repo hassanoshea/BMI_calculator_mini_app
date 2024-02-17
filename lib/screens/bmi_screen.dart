@@ -243,7 +243,6 @@ class _BmiScreenState extends State<BmiScreen> {
             btnHeight: 60,
           )
         ]),
-      ),
-    );
+      );
   }
 }
